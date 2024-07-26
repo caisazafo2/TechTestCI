@@ -15,8 +15,13 @@
                 name = $("#name").val();
                 email = $("#email").val();
                 password = $("#password").val();
-                if($("#password").val()!=$("#passwordrep").val()){
-                    alert("Las contraseñas deben ser iguales")
+                if($("#password").val()!=$("#passwordrep").val() || $("#password").val().length<6){
+                    if($("#password").val().length<6){
+                        alert("La contraseña debe contener al menos 6 caracteres")
+                    } else {
+                        alert("Las contraseñas deben ser iguales")
+                    }
+                    
                 } else {
                     $.ajax({
                     url: "{{ route('signUp') }}",
